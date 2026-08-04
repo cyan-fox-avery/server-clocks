@@ -1,103 +1,158 @@
-const clockCards = document.querySelectorAll(".clock-card");
+document.addEventListener("DOMContentLoaded", () => {
+  const clockCards =
+    document.querySelectorAll(".clock-card");
 
-function getTimeParts(timeZone) {
-  const formatter = new Intl.DateTimeFormat("en-CA", {
-    timeZone,
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit",
-    hour12: false,
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-    weekday: "long"
-  });
+  function getTimeParts(timeZone) {
+    const now = new Date();
 
-  const parts = formatter.formatToParts(new Date());
+    const timeFormatter =
+      new Intl.DateTimeFormat("en-US", {
+        timeZone,
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: true
+      });
 
-  const values = {};
+    const dateFormatter =
+      new Intl.DateTimeFormat("en-US", {
+        timeZone,
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+      });
 
-  for (const part of parts) {
-    if (part.type !== "literal") {
-      values[part.type] = part.value;
+    const numericFormatter =
+      new Intl.DateTimeFormat("en-US", {
+        timeZone,
+        hour: "numeric",
+        minute: "numeric",
+        second: "numeric",
+        hour12: false
+      });
+
+    const numericParts =
+      numericFormatter.formatToParts(now);
+
+    const values = {};
+
+    for (const part of numericParts) {
+      if (part.type !== "literal") {
+        values[part.type] = part.value;
+      }
+    }
+
+    return {
+      displayTime: timeFormatter.format(now),
+      displayDate: dateFormatter.format(now),
+      hour: Number(values.hour) % 24,
+      minute: Number(values.minute),
+      second: Number(values.second)
+    };
+  }
+
+  function createClockMarkers(clockCard) {
+    const markerContainer =
+      clockCard.querySelector(".clock-markers");
+
+    if (!markerContainer) {
+      return;
+    }
+
+    markerContainer.innerHTML = "";
+
+    for (
+      let markerNumber = 0;
+      markerNumber < 60;
+      markerNumber++
+    ) {
+      const marker =
+        document.createElement("div");
+
+      marker.className = "clock-marker";
+
+      if (markerNumber % 5 === 0) {
+        marker.classList.add("major");
+      }
+
+      marker.style.transform =
+        `rotate(${markerNumber * 6}deg)`;
+
+      markerContainer.appendChild(marker);
     }
   }
 
-  return values;
-}
+  function updateClock(clockCard) {
+    const timeZone =
+      clockCard.dataset.timeZone;
 
-function createClockMarkers(clockCard) {
-  const markerContainer =
-    clockCard.querySelector(".clock-markers");
+    const time =
+      getTimeParts(timeZone);
 
-  markerContainer.innerHTML = "";
+    const hours =
+      time.hour % 12;
 
-  for (let markerNumber = 0; markerNumber < 60; markerNumber++) {
-    const marker = document.createElement("div");
+    const hourDegrees =
+      (hours * 30) +
+      (time.minute * 0.5) +
+      (time.second / 120);
 
-    marker.className = "clock-marker";
+    const minuteDegrees =
+      (time.minute * 6) +
+      (time.second * 0.1);
 
-    if (markerNumber % 5 === 0) {
-      marker.classList.add("major");
+    const secondDegrees =
+      time.second * 6;
+
+    const hourHand =
+      clockCard.querySelector(".hour-hand");
+
+    const minuteHand =
+      clockCard.querySelector(".minute-hand");
+
+    const secondHand =
+      clockCard.querySelector(".second-hand");
+
+    const digitalTime =
+      clockCard.querySelector(".digital-time");
+
+    const localDate =
+      clockCard.querySelector(".local-date");
+
+    if (hourHand) {
+      hourHand.style.transform =
+        `translateX(-50%) rotate(${hourDegrees}deg)`;
     }
 
-    marker.style.transform =
-      `rotate(${markerNumber * 6}deg)`;
+    if (minuteHand) {
+      minuteHand.style.transform =
+        `translateX(-50%) rotate(${minuteDegrees}deg)`;
+    }
 
-    markerContainer.appendChild(marker);
+    if (secondHand) {
+      secondHand.style.transform =
+        `translateX(-50%) rotate(${secondDegrees}deg)`;
+    }
+
+    if (digitalTime) {
+      digitalTime.textContent =
+        time.displayTime;
+    }
+
+    if (localDate) {
+      localDate.textContent =
+        time.displayDate;
+    }
   }
-}
 
-function updateClock(clockCard) {
-  const timeZone =
-    clockCard.dataset.timeZone;
+  function updateAllClocks() {
+    clockCards.forEach(updateClock);
+  }
 
-  const parts =
-    getTimeParts(timeZone);
+  clockCards.forEach(createClockMarkers);
 
-  const hours =
-    Number(parts.hour) % 12;
+  updateAllClocks();
 
-  const minutes =
-    Number(parts.minute);
-
-  const seconds =
-    Number(parts.second);
-
-  const hourDegrees =
-    (hours * 30) +
-    (minutes * 0.5) +
-    (seconds / 120);
-
-  const minuteDegrees =
-    (minutes * 6) +
-    (seconds * 0.1);
-
-  const secondDegrees =
-    seconds * 6;
-
-  clockCard.querySelector(".hour-hand").style.transform =
-    `translateX(-50%) rotate(${hourDegrees}deg)`;
-
-  clockCard.querySelector(".minute-hand").style.transform =
-    `translateX(-50%) rotate(${minuteDegrees}deg)`;
-
-  clockCard.querySelector(".second-hand").style.transform =
-    `translateX(-50%) rotate(${secondDegrees}deg)`;
-
-  clockCard.querySelector(".digital-time").textContent =
-    `${parts.hour}:${parts.minute}:${parts.second}`;
-
-  clockCard.querySelector(".local-date").textContent =
-    `${parts.weekday}, ${parts.month} ${parts.day}, ${parts.year}`;
-}
-
-function updateAllClocks() {
-  clockCards.forEach(updateClock);
-}
-
-clockCards.forEach(createClockMarkers);
-
-updateAllClocks();
-
-setInterval(updateAllClocks, 1000);
+  setInterval(updateAllClocks, 1000);
+});
