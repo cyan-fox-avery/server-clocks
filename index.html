@@ -1,143 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <meta
-        name="theme-color"
-        content="#0a0d14"
-    >
+    <meta
+        name="theme-color"
+        content="#0a0d14"
+    >
 
-    <title>Time Between Friends</title>
+    <title>Time Between Friends</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <main>
+    <div id="confetti-layer" aria-hidden="true"></div>
 
-        <header class="page-heading">
-            <p>Three friends. Three time zones.</p>
-        </header>
+    <main>
 
-        <section class="clock-grid">
+        <header class="page-heading">
+            <p>Three friends. Three time zones.</p>
+        </header>
 
-            <article
-                class="clock-card"
-                data-time-zone="America/Los_Angeles"
-            >
+        <section class="clock-grid" aria-label="Clocks for three friends">
 
-                <h2>Portland</h2>
+            <article
+                class="clock-card"
+                data-friend="harley"
+            >
 
-                <div class="analog-clock">
+                <div class="birthday-banner" role="status" aria-live="polite"></div>
 
-                    <div class="clock-markers"></div>
+                <h2>Portland</h2>
 
-                    <div class="clock-hand hour-hand"></div>
-                    <div class="clock-hand minute-hand"></div>
-                    <div class="clock-hand second-hand"></div>
+                <div class="analog-clock">
 
-                    <div class="clock-emoji" aria-hidden="true">
-                        🦊
-                    </div>
+                    <div class="clock-markers"></div>
 
-                </div>
+                    <div class="clock-hand hour-hand"></div>
+                    <div class="clock-hand minute-hand"></div>
+                    <div class="clock-hand second-hand"></div>
 
-                <div class="digital-time">
-                    --:--:--
-                </div>
+                    <div class="clock-emoji" aria-hidden="true">
+                        <span class="mascot">🦊</span>
+                        <span class="party-hat"></span>
+                    </div>
 
-                <div class="local-date">
-                    Loading date…
-                </div>
+                </div>
 
-                <div class="time-zone-label">
-                    Pacific Time
-                </div>
+                <div class="digital-time">
+                    --:--:--
+                </div>
 
-            </article>
+                <div class="local-date">
+                    Loading date…
+                </div>
 
-            <article
-                class="clock-card"
-                data-time-zone="America/Toronto"
-            >
+                <div class="time-zone-label">
+                    Pacific Time
+                </div>
 
-                <h2>Saint-Eustache</h2>
+                <section class="world-window" aria-label="Current conditions in Portland">
+                    <div class="weather-effect" aria-hidden="true"></div>
 
-                <div class="analog-clock">
+                    <div class="weather-topline">
+                        <span class="weather-icon" aria-hidden="true">⏳</span>
 
-                    <div class="clock-markers"></div>
+                        <div>
+                            <div class="weather-condition">Loading weather…</div>
+                            <div class="temperature">--</div>
+                        </div>
+                    </div>
 
-                    <div class="clock-hand hour-hand"></div>
-                    <div class="clock-hand minute-hand"></div>
-                    <div class="clock-hand second-hand"></div>
+                    <div class="world-facts">
+                        <span class="time-of-day">Loading daylight…</span>
+                        <span class="season">Loading season…</span>
+                    </div>
 
-                    <div class="clock-emoji" aria-hidden="true">
-                        🥦
-                    </div>
+                    <div class="sun-times">🌅 -- · 🌇 --</div>
+                </section>
 
-                </div>
+            </article>
 
-                <div class="digital-time">
-                    --:--:--
-                </div>
+            <article
+                class="clock-card"
+                data-friend="avery"
+            >
 
-                <div class="local-date">
-                    Loading date…
-                </div>
+                <div class="birthday-banner" role="status" aria-live="polite"></div>
 
-                <div class="time-zone-label">
-                    Eastern Time
-                </div>
+                <h2>Saint-Eustache</h2>
 
-            </article>
+                <div class="analog-clock">
 
-            <article
-                class="clock-card"
-                data-time-zone="Australia/Perth"
-            >
+                    <div class="clock-markers"></div>
 
-                <h2>Manjimup</h2>
+                    <div class="clock-hand hour-hand"></div>
+                    <div class="clock-hand minute-hand"></div>
+                    <div class="clock-hand second-hand"></div>
 
-                <div class="analog-clock">
+                    <div class="clock-emoji" aria-hidden="true">
+                        <span class="mascot">🥦</span>
+                        <span class="party-hat"></span>
+                    </div>
 
-                    <div class="clock-markers"></div>
+                </div>
 
-                    <div class="clock-hand hour-hand"></div>
-                    <div class="clock-hand minute-hand"></div>
-                    <div class="clock-hand second-hand"></div>
+                <div class="digital-time">
+                    --:--:--
+                </div>
 
-                    <div class="clock-emoji" aria-hidden="true">
-                        🦈
-                    </div>
+                <div class="local-date">
+                    Loading date…
+                </div>
 
-                </div>
+                <div class="time-zone-label">
+                    Eastern Time
+                </div>
 
-                <div class="digital-time">
-                    --:--:--
-                </div>
+                <section class="world-window" aria-label="Current conditions in Saint-Eustache">
+                    <div class="weather-effect" aria-hidden="true"></div>
 
-                <div class="local-date">
-                    Loading date…
-                </div>
+                    <div class="weather-topline">
+                        <span class="weather-icon" aria-hidden="true">⏳</span>
 
-                <div class="time-zone-label">
-                    Western Australia Time
-                </div>
+                        <div>
+                            <div class="weather-condition">Loading weather…</div>
+                            <div class="temperature">--</div>
+                        </div>
+                    </div>
 
-            </article>
+                    <div class="world-facts">
+                        <span class="time-of-day">Loading daylight…</span>
+                        <span class="season">Loading season…</span>
+                    </div>
 
-        </section>
+                    <div class="sun-times">🌅 -- · 🌇 --</div>
+                </section>
 
-    </main>
+            </article>
 
-    <script src="clock.js"></script>
+            <article
+                class="clock-card"
+                data-friend="sarah"
+            >
+
+                <div class="birthday-banner" role="status" aria-live="polite"></div>
+
+                <h2>Manjimup</h2>
+
+                <div class="analog-clock">
+
+                    <div class="clock-markers"></div>
+
+                    <div class="clock-hand hour-hand"></div>
+                    <div class="clock-hand minute-hand"></div>
+                    <div class="clock-hand second-hand"></div>
+
+                    <div class="clock-emoji" aria-hidden="true">
+                        <span class="mascot">🦈</span>
+                        <span class="party-hat"></span>
+                    </div>
+
+                </div>
+
+                <div class="digital-time">
+                    --:--:--
+                </div>
+
+                <div class="local-date">
+                    Loading date…
+                </div>
+
+                <div class="time-zone-label">
+                    Western Australia Time
+                </div>
+
+                <section class="world-window" aria-label="Current conditions in Manjimup">
+                    <div class="weather-effect" aria-hidden="true"></div>
+
+                    <div class="weather-topline">
+                        <span class="weather-icon" aria-hidden="true">⏳</span>
+
+                        <div>
+                            <div class="weather-condition">Loading weather…</div>
+                            <div class="temperature">--</div>
+                        </div>
+                    </div>
+
+                    <div class="world-facts">
+                        <span class="time-of-day">Loading daylight…</span>
+                        <span class="season">Loading season…</span>
+                    </div>
+
+                    <div class="sun-times">🌅 -- · 🌇 --</div>
+                </section>
+
+            </article>
+
+        </section>
+
+        <section class="between-us" aria-live="polite">
+            <h2>Right now between us</h2>
+
+            <div class="between-lines">
+                <p data-summary="harley">🦊 Checking Portland…</p>
+                <p data-summary="avery">🥦 Checking Saint-Eustache…</p>
+                <p data-summary="sarah">🦈 Checking Manjimup…</p>
+            </div>
+
+            <p class="date-bridge"></p>
+            <p class="time-span"></p>
+        </section>
+
+        <footer class="site-footer">
+            Weather data by
+            <a href="https://open-meteo.com/" target="_blank" rel="noreferrer">Open-Meteo</a>.
+        </footer>
+
+    </main>
+
+    <script src="clock.js"></script>
 
 </body>
 </html>
