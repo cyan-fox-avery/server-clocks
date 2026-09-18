@@ -1,722 +1,722 @@
 :root{
-    --bg:#080b12;
-    --panel:#131925;
-    --border:#2c3445;
-    --text:#f3f6fb;
-    --muted:#9ba7bb;
+--bg:#080b12;
+--panel:#131925;
+--border:#2c3445;
+--text:#f3f6fb;
+--muted:#9ba7bb;
 }
 
 *{
-    box-sizing:border-box;
+box-sizing:border-box;
 }
 
 body{
-    margin:0;
-    min-height:100vh;
+margin:0;
+min-height:100vh;
 
-    background:
-        radial-gradient(circle at top,#1a2233 0%,#0b0f17 50%,#07090e 100%);
+background:
+radial-gradient(circle at top,#1a2233 0%,#0b0f17 50%,#07090e 100%);
 
-    color:var(--text);
+color:var(--text);
 
-    font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
+font-family:
+-apple-system,
+BlinkMacSystemFont,
+"Segoe UI",
+sans-serif;
 }
 
 main{
-    width:min(1200px,95%);
-    margin:auto;
-    padding:48px 18px 32px;
+width:min(1200px,95%);
+margin:auto;
+padding:48px 18px 32px;
 }
 
 .page-heading{
-    text-align:center;
-    margin-bottom:48px;
+text-align:center;
+margin-bottom:48px;
 }
 
 .page-heading p{
-    margin:0;
+margin:0;
 
-    color:var(--muted);
-    font-size:1.05rem;
+color:var(--muted);
+font-size:1.05rem;
 }
 
 .clock-grid{
-    display:grid;
+display:grid;
 
-    grid-template-columns:
-        repeat(auto-fit,minmax(300px,1fr));
+grid-template-columns:
+repeat(auto-fit,minmax(300px,1fr));
 
-    gap:28px;
+gap:28px;
 }
 
 .clock-card{
-    position:relative;
+position:relative;
 
-    background:
-        linear-gradient(
-            180deg,
-            rgba(20,26,38,.97),
-            rgba(15,19,28,.97)
-        );
+background:
+linear-gradient(
+180deg,
+rgba(20,26,38,.97),
+rgba(15,19,28,.97)
+);
 
-    border:1px solid var(--border);
-    border-radius:28px;
+border:1px solid var(--border);
+border-radius:28px;
 
-    padding:24px;
+padding:24px;
 
-    text-align:center;
+text-align:center;
 
-    box-shadow:
-        0 20px 60px rgba(0,0,0,.35);
+box-shadow:
+0 20px 60px rgba(0,0,0,.35);
 
-    transition:
-        border-color .25s ease,
-        box-shadow .25s ease,
-        transform .25s ease;
+transition:
+border-color .25s ease,
+box-shadow .25s ease,
+transform .25s ease;
 }
 
 .clock-card h2{
-    margin:0 0 18px;
+margin:0 0 18px;
 
-    letter-spacing:.18em;
-    text-transform:uppercase;
+letter-spacing:.18em;
+text-transform:uppercase;
 
-    color:var(--muted);
+color:var(--muted);
 
-    font-size:.95rem;
+font-size:.95rem;
 }
 
 /* ---------- PERSONALITY ---------- */
 
 .clock-card:nth-child(1){
-    --accent:#ff5757;
+--accent:#ff5757;
 }
 
 .clock-card:nth-child(2){
-    --accent:#54ddff;
+--accent:#54ddff;
 }
 
 .clock-card:nth-child(3){
-    --accent:#ad72ff;
+--accent:#ad72ff;
 }
 
 /* ---------- CLOCK ---------- */
 
 .analog-clock{
-    position:relative;
+position:relative;
 
-    width:260px;
-    aspect-ratio:1;
+width:260px;
+aspect-ratio:1;
 
-    margin:auto;
+margin:auto;
 
-    border-radius:50%;
-    border:2px solid var(--border);
+border-radius:50%;
+border:2px solid var(--border);
 
-    overflow:visible;
+overflow:visible;
 
-    background:
-        radial-gradient(
-            circle,
-            #1b2231 0%,
-            #121721 65%,
-            #090d14 100%
-        );
+background:
+radial-gradient(
+circle,
+#1b2231 0%,
+#121721 65%,
+#090d14 100%
+);
 
-    box-shadow:
-        inset 0 0 50px rgba(0,0,0,.55),
-        0 0 25px color-mix(in srgb,var(--accent) 25%,transparent);
+box-shadow:
+inset 0 0 50px rgba(0,0,0,.55),
+0 0 25px color-mix(in srgb,var(--accent) 25%,transparent);
 }
 
 .clock-markers,
 .clock-markers div{
-    position:absolute;
-    inset:0;
+position:absolute;
+inset:0;
 }
 
 .clock-marker{
-    pointer-events:none;
+pointer-events:none;
 }
 
 .clock-marker::before{
-    content:"";
+content:"";
 
-    position:absolute;
-    top:9px;
-    left:50%;
+position:absolute;
+top:9px;
+left:50%;
 
-    width:2px;
-    height:6px;
+width:2px;
+height:6px;
 
-    border-radius:999px;
+border-radius:999px;
 
-    background:rgba(220,228,239,.45);
+background:rgba(220,228,239,.45);
 
-    transform:translateX(-50%);
+transform:translateX(-50%);
 }
 
 .clock-marker.major::before{
-    top:7px;
+top:7px;
 
-    width:3px;
-    height:11px;
+width:3px;
+height:11px;
 
-    background:color-mix(in srgb,var(--accent) 70%,white 30%);
+background:color-mix(in srgb,var(--accent) 70%,white 30%);
 
-    box-shadow:0 0 8px color-mix(in srgb,var(--accent) 45%,transparent);
+box-shadow:0 0 8px color-mix(in srgb,var(--accent) 45%,transparent);
 }
 
 .clock-hand{
-    position:absolute;
+position:absolute;
 
-    left:50%;
-    bottom:50%;
+left:50%;
+bottom:50%;
 
-    transform-origin:50% 100%;
+transform-origin:50% 100%;
 
-    border-radius:999px;
+border-radius:999px;
 
-    transform:
-        translateX(-50%)
-        rotate(0deg);
+transform:
+translateX(-50%)
+rotate(0deg);
 
-    z-index:3;
+z-index:3;
 }
 
 .hour-hand{
-    width:7px;
-    height:23%;
+width:7px;
+height:23%;
 
-    background:white;
+background:white;
 }
 
 .minute-hand{
-    width:4px;
-    height:34%;
+width:4px;
+height:34%;
 
-    background:#dce4ef;
+background:#dce4ef;
 }
 
 .second-hand{
-    width:2px;
-    height:40%;
+width:2px;
+height:40%;
 
-    background:var(--accent);
+background:var(--accent);
 
-    box-shadow:
-        0 0 10px var(--accent);
+box-shadow:
+0 0 10px var(--accent);
 }
 
 .clock-emoji{
-    position:absolute;
+position:absolute;
 
-    top:50%;
-    left:50%;
+top:50%;
+left:50%;
 
-    transform:translate(-50%,-50%);
+transform:translate(-50%,-50%);
 
-    font-size:1.8rem;
+font-size:1.8rem;
 
-    z-index:5;
+z-index:5;
 }
 
 .mascot{
-    position:relative;
-    z-index:2;
+position:relative;
+z-index:2;
 }
 
 .party-hat{
-    display:none;
+display:none;
 
-    position:absolute;
-    top:-18px;
-    left:52%;
+position:absolute;
+top:-18px;
+left:52%;
 
-    width:22px;
-    height:24px;
+width:22px;
+height:24px;
 
-    transform:translateX(-50%) rotate(12deg);
-    transform-origin:50% 100%;
+transform:translateX(-50%) rotate(12deg);
+transform-origin:50% 100%;
 
-    clip-path:polygon(50% 0,100% 100%,0 100%);
+clip-path:polygon(50% 0,100% 100%,0 100%);
 
-    background:
-        repeating-linear-gradient(
-            135deg,
-            #ffd166 0 5px,
-            #ff5c8a 5px 10px,
-            #54ddff 10px 15px
-        );
+background:
+repeating-linear-gradient(
+135deg,
+#ffd166 0 5px,
+#ff5c8a 5px 10px,
+#54ddff 10px 15px
+);
 
-    filter:drop-shadow(0 2px 3px rgba(0,0,0,.4));
+filter:drop-shadow(0 2px 3px rgba(0,0,0,.4));
 
-    z-index:1;
+z-index:1;
 }
 
 .party-hat::after{
-    content:"";
+content:"";
 
-    position:absolute;
-    top:-4px;
-    left:50%;
+position:absolute;
+top:-4px;
+left:50%;
 
-    width:7px;
-    height:7px;
+width:7px;
+height:7px;
 
-    border-radius:50%;
+border-radius:50%;
 
-    background:#fff3a6;
+background:#fff3a6;
 
-    transform:translateX(-50%);
+transform:translateX(-50%);
 }
 
 .digital-time{
-    margin-top:22px;
+margin-top:22px;
 
-    font-size:2.5rem;
-    font-weight:750;
+font-size:2.5rem;
+font-weight:750;
 
-    color:var(--accent);
+color:var(--accent);
 
-    font-variant-numeric:tabular-nums;
+font-variant-numeric:tabular-nums;
 
-    text-shadow:
-        0 0 16px color-mix(in srgb,var(--accent) 45%,transparent);
+text-shadow:
+0 0 16px color-mix(in srgb,var(--accent) 45%,transparent);
 }
 
 .local-date{
-    margin-top:10px;
+margin-top:10px;
 
-    color:var(--text);
+color:var(--text);
 
-    font-size:.95rem;
+font-size:.95rem;
 }
 
 .time-zone-label{
-    margin-top:8px;
+margin-top:8px;
 
-    color:var(--muted);
+color:var(--muted);
 
-    font-size:.8rem;
+font-size:.8rem;
 
-    letter-spacing:.12em;
-    text-transform:uppercase;
+letter-spacing:.12em;
+text-transform:uppercase;
 }
 
 /* ---------- BIRTHDAYS ---------- */
 
 .birthday-banner{
-    display:none;
+display:none;
 
-    margin:-4px 0 18px;
-    padding:10px 12px;
+margin:-4px 0 18px;
+padding:10px 12px;
 
-    border:1px solid rgba(255,209,102,.45);
-    border-radius:14px;
+border:1px solid rgba(255,209,102,.45);
+border-radius:14px;
 
-    background:rgba(255,209,102,.10);
+background:rgba(255,209,102,.10);
 
-    color:#fff3c6;
+color:#fff3c6;
 
-    font-weight:750;
-    letter-spacing:.01em;
+font-weight:750;
+letter-spacing:.01em;
 }
 
 .clock-card.birthday-mode{
-    border-color:color-mix(in srgb,var(--accent) 65%,#ffd166 35%);
+border-color:color-mix(in srgb,var(--accent) 65%,#ffd166 35%);
 
-    box-shadow:
-        0 20px 60px rgba(0,0,0,.35),
-        0 0 34px color-mix(in srgb,var(--accent) 25%,#ffd166 12%,transparent);
+box-shadow:
+0 20px 60px rgba(0,0,0,.35),
+0 0 34px color-mix(in srgb,var(--accent) 25%,#ffd166 12%,transparent);
 }
 
 .clock-card.birthday-mode .birthday-banner{
-    display:block;
+display:block;
 }
 
 .clock-card.birthday-mode .party-hat{
-    display:block;
+display:block;
 }
 
 .clock-card.birthday-mode .analog-clock{
-    box-shadow:
-        inset 0 0 50px rgba(0,0,0,.55),
-        0 0 34px color-mix(in srgb,var(--accent) 35%,#ffd166 20%,transparent);
+box-shadow:
+inset 0 0 50px rgba(0,0,0,.55),
+0 0 34px color-mix(in srgb,var(--accent) 35%,#ffd166 20%,transparent);
 }
 
 /* ---------- WORLD WINDOW ---------- */
 
 .world-window{
-    --sky-top:#273149;
-    --sky-bottom:#131a28;
+--sky-top:#273149;
+--sky-bottom:#131a28;
 
-    position:relative;
-    overflow:hidden;
+position:relative;
+overflow:hidden;
 
-    margin-top:24px;
-    padding:18px;
+margin-top:24px;
+padding:18px;
 
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:20px;
+border:1px solid rgba(255,255,255,.08);
+border-radius:20px;
 
-    text-align:left;
+text-align:left;
 
-    background:
-        linear-gradient(180deg,var(--sky-top),var(--sky-bottom));
+background:
+linear-gradient(180deg,var(--sky-top),var(--sky-bottom));
 
-    box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.05),
-        inset 0 -20px 40px rgba(0,0,0,.12);
+box-shadow:
+inset 0 1px 0 rgba(255,255,255,.05),
+inset 0 -20px 40px rgba(0,0,0,.12);
 
-    transition:background .6s ease;
+transition:background .6s ease;
 }
 
 .world-window.period-night{
-    --sky-top:#11162d;
-    --sky-bottom:#1c2942;
+--sky-top:#11162d;
+--sky-bottom:#1c2942;
 }
 
 .world-window.period-dawn{
-    --sky-top:#4e4e72;
-    --sky-bottom:#825f58;
+--sky-top:#4e4e72;
+--sky-bottom:#825f58;
 }
 
 .world-window.period-morning{
-    --sky-top:#356c91;
-    --sky-bottom:#5d8eaa;
+--sky-top:#356c91;
+--sky-bottom:#5d8eaa;
 }
 
 .world-window.period-afternoon{
-    --sky-top:#2e658b;
-    --sky-bottom:#487b9b;
+--sky-top:#2e658b;
+--sky-bottom:#487b9b;
 }
 
 .world-window.period-evening{
-    --sky-top:#5d456f;
-    --sky-bottom:#8b594d;
+--sky-top:#5d456f;
+--sky-bottom:#8b594d;
 }
 
 .world-window::before{
-    content:"";
+content:"";
 
-    position:absolute;
-    inset:0;
+position:absolute;
+inset:0;
 
-    pointer-events:none;
+pointer-events:none;
 
-    background:
-        radial-gradient(circle at 80% 14%,rgba(255,255,255,.14),transparent 28%);
+background:
+radial-gradient(circle at 80% 14%,rgba(255,255,255,.14),transparent 28%);
 
-    opacity:.7;
+opacity:.7;
 }
 
 .world-window.period-night::before{
-    background:
-        radial-gradient(circle at 82% 18%,rgba(232,239,255,.30) 0 3px,transparent 4px),
-        radial-gradient(circle at 18% 25%,rgba(255,255,255,.28) 0 1px,transparent 2px),
-        radial-gradient(circle at 42% 12%,rgba(255,255,255,.20) 0 1px,transparent 2px),
-        radial-gradient(circle at 69% 34%,rgba(255,255,255,.20) 0 1px,transparent 2px);
+background:
+radial-gradient(circle at 82% 18%,rgba(232,239,255,.30) 0 3px,transparent 4px),
+radial-gradient(circle at 18% 25%,rgba(255,255,255,.28) 0 1px,transparent 2px),
+radial-gradient(circle at 42% 12%,rgba(255,255,255,.20) 0 1px,transparent 2px),
+radial-gradient(circle at 69% 34%,rgba(255,255,255,.20) 0 1px,transparent 2px);
 }
 
 .weather-topline,
 .world-facts,
 .sun-times{
-    position:relative;
-    z-index:2;
+position:relative;
+z-index:2;
 }
 
 .weather-topline{
-    display:flex;
-    align-items:center;
-    gap:14px;
+display:flex;
+align-items:center;
+gap:14px;
 }
 
 .weather-icon{
-    display:grid;
-    place-items:center;
+display:grid;
+place-items:center;
 
-    width:54px;
-    height:54px;
+width:54px;
+height:54px;
 
-    flex:0 0 auto;
+flex:0 0 auto;
 
-    border-radius:16px;
+border-radius:16px;
 
-    background:rgba(8,11,18,.28);
-    border:1px solid rgba(255,255,255,.08);
+background:rgba(8,11,18,.28);
+border:1px solid rgba(255,255,255,.08);
 
-    font-size:2rem;
+font-size:2rem;
 
-    box-shadow:inset 0 1px 0 rgba(255,255,255,.06);
+box-shadow:inset 0 1px 0 rgba(255,255,255,.06);
 }
 
 .weather-condition{
-    font-weight:700;
-    line-height:1.2;
+font-weight:700;
+line-height:1.2;
 }
 
 .temperature{
-    margin-top:4px;
+margin-top:4px;
 
-    color:rgba(243,246,251,.88);
+color:rgba(243,246,251,.88);
 
-    font-size:.95rem;
-    font-variant-numeric:tabular-nums;
+font-size:.95rem;
+font-variant-numeric:tabular-nums;
 }
 
 .world-facts{
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
+display:flex;
+flex-wrap:wrap;
+gap:8px;
 
-    margin-top:15px;
+margin-top:15px;
 }
 
 .world-facts span{
-    padding:6px 9px;
+padding:6px 9px;
 
-    border-radius:999px;
+border-radius:999px;
 
-    background:rgba(8,11,18,.28);
-    border:1px solid rgba(255,255,255,.07);
+background:rgba(8,11,18,.28);
+border:1px solid rgba(255,255,255,.07);
 
-    color:rgba(243,246,251,.91);
+color:rgba(243,246,251,.91);
 
-    font-size:.78rem;
+font-size:.78rem;
 }
 
 .sun-times{
-    margin-top:13px;
+margin-top:13px;
 
-    color:rgba(243,246,251,.78);
+color:rgba(243,246,251,.78);
 
-    font-size:.82rem;
-    font-variant-numeric:tabular-nums;
+font-size:.82rem;
+font-variant-numeric:tabular-nums;
 }
 
 .weather-effect{
-    position:absolute;
-    inset:0;
+position:absolute;
+inset:0;
 
-    overflow:hidden;
-    pointer-events:none;
+overflow:hidden;
+pointer-events:none;
 
-    z-index:1;
+z-index:1;
 }
 
 .weather-drop,
 .weather-snowflake{
-    position:absolute;
-    top:-18px;
+position:absolute;
+top:-18px;
 }
 
 .weather-drop{
-    width:1px;
-    height:15px;
+width:1px;
+height:15px;
 
-    background:rgba(194,226,255,.50);
+background:rgba(194,226,255,.50);
 
-    animation:rain-fall 1.15s linear infinite;
+animation:rain-fall 1.15s linear infinite;
 }
 
 .weather-snowflake{
-    width:5px;
-    height:5px;
+width:5px;
+height:5px;
 
-    border-radius:50%;
+border-radius:50%;
 
-    background:rgba(255,255,255,.75);
+background:rgba(255,255,255,.75);
 
-    animation:snow-fall 5.5s linear infinite;
+animation:snow-fall 5.5s linear infinite;
 }
 
 @keyframes rain-fall{
-    from{
-        transform:translateY(-25px) translateX(0);
-    }
+from{
+transform:translateY(-25px) translateX(0);
+}
 
-    to{
-        transform:translateY(230px) translateX(-18px);
-    }
+to{
+transform:translateY(230px) translateX(-18px);
+}
 }
 
 @keyframes snow-fall{
-    from{
-        transform:translateY(-20px) translateX(0) rotate(0deg);
-    }
+from{
+transform:translateY(-20px) translateX(0) rotate(0deg);
+}
 
-    to{
-        transform:translateY(230px) translateX(22px) rotate(180deg);
-    }
+to{
+transform:translateY(230px) translateX(22px) rotate(180deg);
+}
 }
 
 /* ---------- BETWEEN US ---------- */
 
 .between-us{
-    margin:34px auto 0;
-    padding:26px;
+margin:34px auto 0;
+padding:26px;
 
-    max-width:820px;
+max-width:820px;
 
-    border:1px solid var(--border);
-    border-radius:24px;
+border:1px solid var(--border);
+border-radius:24px;
 
-    background:rgba(15,19,28,.78);
+background:rgba(15,19,28,.78);
 
-    box-shadow:0 18px 50px rgba(0,0,0,.24);
+box-shadow:0 18px 50px rgba(0,0,0,.24);
 }
 
 .between-us h2{
-    margin:0 0 17px;
+margin:0 0 17px;
 
-    text-align:center;
+text-align:center;
 
-    font-size:1rem;
-    letter-spacing:.14em;
-    text-transform:uppercase;
+font-size:1rem;
+letter-spacing:.14em;
+text-transform:uppercase;
 
-    color:var(--muted);
+color:var(--muted);
 }
 
 .between-lines{
-    display:grid;
-    gap:8px;
+display:grid;
+gap:8px;
 }
 
 .between-lines p,
 .date-bridge,
 .time-span{
-    margin:0;
+margin:0;
 }
 
 .between-lines p{
-    color:var(--text);
+color:var(--text);
 }
 
 .date-bridge,
 .time-span{
-    margin-top:16px;
-    padding-top:16px;
+margin-top:16px;
+padding-top:16px;
 
-    border-top:1px solid rgba(255,255,255,.07);
+border-top:1px solid rgba(255,255,255,.07);
 
-    color:var(--muted);
+color:var(--muted);
 
-    text-align:center;
-    font-size:.9rem;
+text-align:center;
+font-size:.9rem;
 }
 
 .time-span:empty,
 .date-bridge:empty{
-    display:none;
+display:none;
 }
 
 .site-footer{
-    margin-top:22px;
+margin-top:22px;
 
-    color:var(--muted);
+color:var(--muted);
 
-    text-align:center;
-    font-size:.75rem;
+text-align:center;
+font-size:.75rem;
 }
 
 .site-footer a{
-    color:inherit;
+color:inherit;
 }
 
 /* ---------- CONFETTI ---------- */
 
 #confetti-layer{
-    position:fixed;
-    inset:0;
+position:fixed;
+inset:0;
 
-    overflow:hidden;
-    pointer-events:none;
+overflow:hidden;
+pointer-events:none;
 
-    z-index:9999;
+z-index:9999;
 }
 
 .confetti-piece{
-    position:absolute;
-    top:-16px;
+position:absolute;
+top:-16px;
 
-    width:9px;
-    height:16px;
+width:9px;
+height:16px;
 
-    border-radius:2px;
+border-radius:2px;
 
-    background:var(--confetti-color);
+background:var(--confetti-color);
 
-    opacity:.95;
+opacity:.95;
 
-    animation:
-        confetti-fall var(--confetti-duration) ease-in var(--confetti-delay) forwards;
+animation:
+confetti-fall var(--confetti-duration) ease-in var(--confetti-delay) forwards;
 }
 
 @keyframes confetti-fall{
-    0%{
-        transform:translate3d(0,-5vh,0) rotate(0deg);
-    }
+0%{
+transform:translate3d(0,-5vh,0) rotate(0deg);
+}
 
-    100%{
-        transform:translate3d(var(--confetti-drift),110vh,0) rotate(var(--confetti-spin));
-    }
+100%{
+transform:translate3d(var(--confetti-drift),110vh,0) rotate(var(--confetti-spin));
+}
 }
 
 /* ---------- RESPONSIVE ---------- */
 
 @media(max-width:900px){
-    main{
-        padding-top:34px;
-    }
+main{
+padding-top:34px;
+}
 
-    .page-heading{
-        margin-bottom:32px;
-    }
+.page-heading{
+margin-bottom:32px;
+}
 
-    .analog-clock{
-        width:min(72vw,280px);
-    }
+.analog-clock{
+width:min(72vw,280px);
+}
 }
 
 @media(max-width:430px){
-    main{
-        width:100%;
-        padding-inline:12px;
-    }
+main{
+width:100%;
+padding-inline:12px;
+}
 
-    .clock-card{
-        padding:20px 16px;
-        border-radius:24px;
-    }
+.clock-card{
+padding:20px 16px;
+border-radius:24px;
+}
 
-    .digital-time{
-        font-size:2.2rem;
-    }
+.digital-time{
+font-size:2.2rem;
+}
 
-    .between-us{
-        padding:22px 18px;
-    }
+.between-us{
+padding:22px 18px;
+}
 }
 
 /* ---------- ACCESSIBILITY ---------- */
 
 @media(prefers-reduced-motion:reduce){
-    *,
-    *::before,
-    *::after{
-        scroll-behavior:auto !important;
-        transition:none !important;
-    }
+*,
+*::before,
+*::after{
+scroll-behavior:auto !important;
+transition:none !important;
+}
 
-    .weather-drop,
-    .weather-snowflake,
-    .confetti-piece{
-        animation:none !important;
-        display:none !important;
-    }
+.weather-drop,
+.weather-snowflake,
+.confetti-piece{
+animation:none !important;
+display:none !important;
+}
 }
