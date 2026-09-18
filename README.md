@@ -1,0 +1,18 @@
+# Time Between Friends
+
+A small three-person world clock for friends in Portland, Saint-Eustache, and Manjimup.
+
+## What it shows
+
+- Live analog and digital clocks for all three locations
+- Local date and time zone
+- Current weather and temperature in both Celsius and Fahrenheit
+- Sunrise, sunset, and daylight-aware time-of-day labels
+- Astronomical seasons, including Southern Hemisphere season reversal
+- Birthday celebrations based on each person's local date
+- A shared "Right now between us" summary that treats all three locations equally
+- Reduced-motion support for animated weather and confetti
+
+Weather data is provided by [Open-Meteo](https://open-meteo.com/).
+
+The site is designed to run entirely on GitHub Pages with no server or API key required.
